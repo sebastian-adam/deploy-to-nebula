@@ -6,6 +6,8 @@ parameters:
     description: Slack channel (include preceding hashtag)
   message:
     description: Slack message
+  yolo:
+    description: Do nothing param
 
 steps:
 - name: init-workflow
