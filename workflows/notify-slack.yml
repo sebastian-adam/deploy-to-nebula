@@ -26,5 +26,8 @@ steps:
     message:
        $type: Parameter
        name: message
+    credentials:
+      credentials: !Secret credentials
+      shh: !Secret shh
   dependsOn:
   - init-workflow
