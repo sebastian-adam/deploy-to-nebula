@@ -4,7 +4,7 @@ description: Notify team members with Slack
 parameters:
   channel:
     description: Slack channel (include preceding hashtag)
-    default: #nebula-workflows
+    default: "#nebula-workflows"
   message:
     description: Slack message
     default: another one
