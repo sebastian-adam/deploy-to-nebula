@@ -4,30 +4,15 @@ description: Notify team members with Slack
 parameters:
   channel:
     description: Slack channel (include preceding hashtag)
+    default: #nebula-workflows
   message:
     description: Slack message
-  yolo:
-    description: Do nothing param
+    default: another one
 
 steps:
-- name: init-workflow
-  image: alpine:latest
-  input:
-    - echo "Initializing workflow - Notify with Slack"
 - name: slack-notify
   image: projectnebula/slack-notification
   spec:
-    apitoken:
-       $type: Secret
-       name: slack-token
-    channel:
-       $type: Parameter
-       name: channel
-    message:
-       $type: Parameter
-       name: message
-    credentials:
-      credentials: !Secret credentials
-      shh: !Secret shh
-  dependsOn:
-  - init-workflow
+    apitoken: !Secret slack-token
+    channel: !Parameter channel
+    message: !Parameter message
